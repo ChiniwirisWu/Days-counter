@@ -1,0 +1,53 @@
+<html lang="en">
+	<head>
+		<title>Days</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="icon" href="img/totoro.ico" />
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script>
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+
+			function drawChart() {
+
+				var data = google.visualization.arrayToDataTable([
+				  ['type', 'days'],
+				  ['Lived',     9000],
+				  ['Remainding',     29000],
+				]);
+
+				var options = {
+				  title: 'Days of your life until now',
+				  pieHole: 0.4,
+				  backgroundColor: '#809cb3',
+				  colors: ['#266c6b', '#273842']
+					
+				};
+
+				var chart = new google.visualization.PieChart(document.getElementById('results-graph'));
+
+				chart.draw(data, options);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<header id="container-header"><p>Days remainder</p></header>
+			<div id="container-form">
+				<h1>Insert your data:</h1>
+				<label>Birthday:</label>
+				<input type="date" name="birthday" id="birthday-inp" />
+				<label>Your Subjective Life expectancy (years): </label>
+				<input type="number" name="life_expectancy" id="life_expectancy-inp" />
+				<button>Calculate</button>
+			</div>
+			<div id="container-image"></div>
+			<div id="container-results">
+				<h1>Results:</h1>
+				<div id="results-graph"></div>
+				<p id="results-description">You lived 9000 days of 29000 days, it's 20% of your life, therefore you have yet 80% so use it proudly.</p>
+			</div>
+			<footer id="container-footer"><p>...</p></footer>
+		</div>
+	</body>
+</html>
