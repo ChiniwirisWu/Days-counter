@@ -4,31 +4,6 @@
 		<link rel="stylesheet" href="style.css" />
 		<link rel="icon" href="img/totoro.ico" />
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		<script>
-			google.charts.load('current', {'packages':['corechart']});
-			google.charts.setOnLoadCallback(drawChart);
-
-			function drawChart() {
-
-				var data = google.visualization.arrayToDataTable([
-				  ['type', 'days'],
-				  ['Lived',     9000],
-				  ['Remainding',     29000],
-				]);
-
-				var options = {
-				  title: 'Days of your life until now',
-				  pieHole: 0.4,
-				  backgroundColor: '#809cb3',
-				  colors: ['#266c6b', '#273842']
-					
-				};
-
-				var chart = new google.visualization.PieChart(document.getElementById('results-graph'));
-
-				chart.draw(data, options);
-			}
-		</script>
 	</head>
 	<body>
 		<div id="container">
@@ -49,5 +24,6 @@
 			</div>
 			<footer id="container-footer"><p>...</p></footer>
 		</div>
+		<script src="script.js"></script>
 	</body>
 </html>

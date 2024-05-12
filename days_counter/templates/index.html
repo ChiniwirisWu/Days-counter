@@ -1,0 +1,42 @@
+{% load static %}
+<html lang="en">
+	<head>
+		<title>Days</title>
+		<link rel="stylesheet" href="{% static 'style.css' %}" />
+		<link rel="icon" href="{% static 'img/totoro.ico' %}" />
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body>
+		{% comment %}data for the chart{% endcomment %}
+		<input type="hidden" id="days_lived_percentage" value={{days_lived_percentage}} />
+		<input type="hidden" id="days_left_percentage" value={{days_left_percentage}} />
+		{% comment %}end of data for the chart{% endcomment %}
+
+		<div id="container">
+			<header id="container-header"><p>Days remainder</p></header>
+			<div id="container-form">
+				<form method="post" action="{% url 'days_counter:index' %}">
+					{% csrf_token %}
+					<h1>Insert your data:</h1>
+					<label>Birthday:</label>
+					<input type="date" name="birthday" id="birthday_inp" value="{{birthday}}" required />
+					<label>Your Subjective Life expectancy (years): </label>
+					<input type="number" name="life_expectancy" id="life_expectancy_inp" value="{{life_expectancy}}" required />
+					<button>Calculate</button>
+				</form>
+			</div>
+			<div id="container-image"></div>
+			<div id="container-results">
+				<h1>Results:</h1>
+				<div id="results-graph"></div>
+				{% if no_data %}
+				<p>Insert information on the left site to calculate your life_expectancy.</p>
+				{% else %}
+				<p id="results-description">You lived <b>{{days_lived}}</b> days of <b>{{days_avaliable}}</b> days, it's <b>{{days_lived_percentage}}%</b> of your life, therefore you have yet <b>{{days_left_percentage}}%</b> so use it proudly. You will probably die on <b>{{last_date}}</b></p>
+				{% endif %}
+			</div>
+			<footer id="container-footer"><p>...</p></footer>
+		</div>
+		<script src="{% static 'script.js' %}"></script>
+	</body>
+</html>

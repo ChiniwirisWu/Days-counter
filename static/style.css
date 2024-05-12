@@ -1,0 +1,84 @@
+:root{
+	--blue-light: #819fb9;
+	--blue-normal: #007098;
+	--lila-normal: #ab98ae;
+	--salmon-normal: #b09faf;
+}
+
+body{
+	overflow: hidden;
+	background-color: var(--blue-light);
+	opacity: 0.7;
+	margin: 0px;
+}
+
+/* Page skeleton */
+#container{
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	grid-template-rows: 50px 1fr 50px;
+	width: 100vw;
+	height: 100vh;
+	min-width: 1000px;
+}
+
+#container-header{
+	grid-column-start: 1;
+	grid-column-end: 4;
+}
+
+#container-footer{
+	grid-column-start: 1;
+	grid-column-end: 4;
+}
+
+#container-header p, #container-footer p{
+	text-align: center;
+}
+
+
+#container-form{
+	flex-basis: 70%;
+}
+
+#container-image{
+	background-image: url('img/Anime\ beautiful\ wallpaper.jpeg');
+}
+
+/* skeleton second layer  */
+#container-form form{
+	display: flex;
+	flex-direction: column;
+	padding: 0px 10% 0px 10%;
+}
+
+input{
+	margin-bottom: 20px;
+	margin-top: 5px;
+}
+
+button{
+	cursor: pointer;
+	background-color: var(--blue-normal);
+	border: 1px solid #000;
+	padding: 3px 0px;
+}
+
+button:hover{
+	color: #fff;
+}
+
+#container-results{
+	display: flex;
+	flex-direction: column;
+	padding: 0px 10% 0px 10%;
+}
+
+#results-graph{
+	width: 100%;
+	height: 400px;
+	background-color: var(--blue-light);
+	border: 1px solid #fff;
+	border-radius: 20px;
+	padding: 10px;
+}
