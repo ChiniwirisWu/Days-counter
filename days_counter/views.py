@@ -14,6 +14,6 @@ def view_index(request):
         days_avaliable = (last_date - today).days
         days_lived_percentage = round(days_lived * 100 / total_days, 2) 
         days_left_percentage = round(days_avaliable * 100 / total_days, 2)
-        return render(request, 'index.html', context={'days_lived':days_lived, 'days_avaliable':days_avaliable, 'days_lived_percentage':days_lived_percentage, 'days_left_percentage':days_left_percentage, 'last_date': last_date, 'birthday':birthday.isoformat(), 'life_expectancy':life_expectancy})
+        return render(request, 'index.html', context={'days_lived':days_lived, 'days_avaliable': days_avaliable, 'total_days':total_days, 'days_lived_percentage':days_lived_percentage, 'days_left_percentage':days_left_percentage, 'last_date': last_date, 'birthday':birthday.isoformat(), 'life_expectancy':life_expectancy})
     else:
         return render(request, 'index.html', context={'no_data':True})
